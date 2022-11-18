@@ -1,1 +1,23 @@
 
+1. sh-install中的install.sh进行安装，其后参数如下（可以通过install.sh -h进行查看）：
+apt               填充apt-get镜像源,更新惊险源
+ssh               安装ssh、vim、sudo、curl、net-tools、lsof
+python            安装python
+mysql             安装mysql,并设置root密码和简历geek用户并设置密码
+docker            安装docker并进行镜像源配置
+docker-compose    安装docker-compose
+go                安装go
+--notip           不进行提示
+-h|--help         帮助
+
+2. sh-web中的nginxDjango，可以一键将django项目使用nginx进行部署
+只需在envs.sh中设置变量
+之后执行./nginxDjango.sh --uwsgi --nginx即可进行部署
+其中-ty指定的是nginx的三种转发方式
+--uwsgi         使用uwsgi启动django项目
+--nginx         是否让nginx连接django项目的静态文件(注意保证settings的static_root和media_root)
+-ty|--transmitType
+                  http        --采用http转发方式
+                  socket      --采用socket链接转发方式(默认)
+                  sockfile    --nginx采用.sock文件转发方式
+--notip         不进行初始提示
